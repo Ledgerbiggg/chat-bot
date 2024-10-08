@@ -1,24 +1,23 @@
-package test
+package bot
 
 import (
 	"fmt"
 	"github.com/eatmoreapple/openwechat"
 	"os"
-	"testing"
 	"time"
 )
 
-func TestLogin(t *testing.T) {
-	bot := openwechat.DefaultBot()
-	reloadStorage := openwechat.NewFileHotReloadStorage("storage.json")
-	defer reloadStorage.Close()
-	err := bot.PushLogin(reloadStorage, openwechat.NewRetryLoginOption())
-	if err != nil {
-		t.Fatal(err)
-	}
+type WechatBot struct {
+	// 主人名字
+	hostName string
 }
 
-func TestHotLogin(t *testing.T) {
+func NewWechatBot() *WechatBot {
+	w := &WechatBot{}
+	return w
+}
+
+func (mb *WechatBot) Start() {
 	bot := openwechat.DefaultBot(openwechat.Desktop)
 
 	// 注册登陆二维码回调

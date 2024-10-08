@@ -1,0 +1,9 @@
+# 环境
+mod: dev
+
+# 日志等级
+logLevel: 1
+
+# 主人账号
+master: ledgerbiggg
+
